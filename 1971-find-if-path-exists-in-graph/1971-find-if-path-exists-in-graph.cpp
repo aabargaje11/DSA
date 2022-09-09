@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
-        
+        if(source == destination) return true;
         unordered_map<int, vector<int>> adj;
         vector<bool> visited(n,false);
         
@@ -32,7 +32,7 @@ public:
             }
         }
 
-        return visited[destination];
+        return false;
         
     }
 };
