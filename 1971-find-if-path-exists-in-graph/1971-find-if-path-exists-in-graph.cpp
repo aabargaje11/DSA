@@ -24,6 +24,7 @@ public:
             q.pop();
             
             for(auto num:adj[top]){
+                if(num == destination) return true;
                 if(!visited[num]){
                     q.push(num);
                     visited[num] = 1;
