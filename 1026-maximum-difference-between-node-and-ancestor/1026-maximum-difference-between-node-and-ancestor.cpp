@@ -12,6 +12,11 @@
 class Solution {
 public:
     void solve(TreeNode* root, int mx, int mn, int &ans){
+        // As we are expecting absoulte different between two nodes it may be possible that parent 
+        // node has greater value than child value and vice versa.
+        
+        // keep track of max value so far and min value so for
+        // and calculate diffference and find ans
         if(!root) return;
         ans = max(abs(mx - root->val), ans);
         ans = max(abs(mn- root->val), ans);
@@ -22,7 +27,6 @@ public:
         solve(root->left, mx, mn, ans);
         solve(root->right, mx, mn, ans);
         
-
     }
     
     int maxAncestorDiff(TreeNode* root) {
