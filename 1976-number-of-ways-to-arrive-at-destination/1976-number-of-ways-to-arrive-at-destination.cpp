@@ -2,6 +2,7 @@ class Solution {
 public:
     int countPaths(int n, vector<vector<int>>& roads) {
         int mod = 1e9 + 7;
+        //first value will be node second value will be distance
         vector<vector<pair<int, int>>> adj(n, vector<pair<int, int>>()) ;
         for(auto n:roads){
             adj[n[0]].push_back({n[1], n[2]});
@@ -11,6 +12,7 @@ public:
         vector<int> path(n,0);
         vector<long long> distance(n, LONG_MAX);
         
+        // first value will be distance second value will be node
         priority_queue<pair<long long , int>, vector<pair<long long , int>>, greater<pair<long long , int>>> q;
         
         
@@ -29,6 +31,7 @@ public:
                 int nnval = nn.first;
                 int nndist = nn.second;
                 
+                // Push to q only if new value is less that existing
                 if(distance[nnval] > distso + nndist){
                     distance[nnval] = (distance[val] + nndist);
                     q.push({distance[nnval],nnval});
