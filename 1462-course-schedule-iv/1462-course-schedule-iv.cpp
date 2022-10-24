@@ -10,7 +10,7 @@ public:
             adj[p[1]].push_back(p[0]);
         }
         
-        
+        // Calculate all pre-equistes for all nodes/cources
         for(int i=0;i<numCourses;i++){
             queue<int> q;
             q.push(i);
