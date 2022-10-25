@@ -22,6 +22,7 @@ public:
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
         pq.push({0, n});
         dist[n] = 0;
+        // CAlculate shortest distance using dijiktra algorithm
         while(!pq.empty()) {
             pair<int, int> p = pq.top();
             pq.pop();
@@ -35,6 +36,7 @@ public:
             }
         }
         vector<int> dp(n+1, -1);
+        // DFS call to get count of numbers
         return dfs(1, dist, graph, dp);
     }
 };
