@@ -19,7 +19,7 @@ public:
         time[0] = 0;
         
         q.push({cost[0],{0,0}});
-        
+        // Similar to Dijiktras algorithm is used
         while(!q.empty()){
             pi top = q.top();
             q.pop();
