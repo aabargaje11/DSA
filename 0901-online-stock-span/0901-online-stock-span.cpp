@@ -5,6 +5,9 @@ public:
         
     }
     
+    // Use monotonic stack
+    // We want to find minimum values are left side. i.e Bigger value are right side.
+    // FInd stack o=with decreasing elements
     int next(int price) {
         
         int ans = 1;
