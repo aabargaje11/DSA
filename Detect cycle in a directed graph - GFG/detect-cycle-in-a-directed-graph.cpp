@@ -5,34 +5,31 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
-    bool solve(int i, vector<int> &v, vector<int> &t, vector<int> adj[]){
+    // Function to detect cycle in a directed graph.
+    
+    bool dfs(int i, vector<int> &t, vector<int> &v, vector<int> adj[]){
         if(t[i]) return true;
         if(v[i]) return false;
         t[i] = true;
         v[i] = true;
         
-        
         for(auto ii:adj[i]){
-            if(solve(ii,v,t,adj)) return true;
+            if(dfs(ii,t,v,adj)) return true;
         }
-
         
         t[i] = false;
-        
         return false;
     }
     bool isCyclic(int V, vector<int> adj[]) {
-        
-        vector<int> t(V,false),v(V,false);
+        // code here
+        vector<int> t(V, false), v(V, false);
         
         
         for(int i=0;i<V;i++){
             if(!v[i]){
-                if(solve(i,v,t,adj)) return true;
+                if(dfs(i,t,v,adj)) return true;
             }
         }
-        
-        
         return false;
     }
 };
